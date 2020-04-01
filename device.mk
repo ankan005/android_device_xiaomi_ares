@@ -104,6 +104,7 @@ PRODUCT_PACKAGES += \
 
 # CAS
 PRODUCT_PACKAGES += \
+<<<<<<< HEAD
     android.hardware.cas@1.2-service
 
 # Common shared libraries
@@ -126,6 +127,12 @@ PRODUCT_PACKAGES += \
 # Dynamic Partition
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_BUILD_SUPER_PARTITION := false
+=======
+    XiaomiParts
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/parts/privapp-permissions-parts.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-parts.xml
+>>>>>>> e869b7d... devicesettings: refactor to XiaomiParts, update package name
 
 # Dumpstate
 PRODUCT_PACKAGES += \
