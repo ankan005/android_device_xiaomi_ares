@@ -24,6 +24,20 @@ media.stagefright.thumbnail.prefer_hw_codecs=true
 vendor.mtk_thumbnail_optimization=true
 ro.audio.usb.period_us=16000
 
+# Crypto
+ro.crypto.volume.filenames_mode=aes-256-cts
+
+# Dalvik
+dalvik.vm.dex2oat64.enabled=true
+
+# Display
+ro.surface_flinger.set_display_power_timer_ms=1000
+ro.surface_flinger.set_idle_timer_ms=200
+ro.surface_flinger.set_touch_timer_ms=200
+ro.surface_flinger.use_content_detection_for_refresh_rate=true
+
+# Display post-processing
+ro.vendor.display.sensortype=2
 persist.sys.mcd_config_file=/system/etc/mcd_default.conf
 drm.service.enabled=true
 debug.mtk_tflite.target_nnapi=29
