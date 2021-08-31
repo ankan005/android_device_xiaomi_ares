@@ -18,17 +18,18 @@ package org.lineageos.settings;
 
 import android.content.Context;
 import android.content.om.IOverlayManager;
-import android.content.om.OverlayInfo;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.os.RemoteException;
 import android.os.ServiceManager;
-import android.provider.Settings;
 import android.widget.Toast;
-import androidx.preference.PreferenceFragment;
-import androidx.preference.Preference;
+
 import androidx.preference.ListPreference;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragment;
 import androidx.preference.SwitchPreference;
+
+import org.lineageos.settings.utils.RefreshRateUtils;
 
 public class DevicePreferenceFragment extends PreferenceFragment {
     private static final String KEY_MIN_REFRESH_RATE = "pref_min_refresh_rate";
@@ -71,11 +72,11 @@ public class DevicePreferenceFragment extends PreferenceFragment {
         mPrefPowerSaveRefreshRateSwitch.setChecked(RefreshRateUtils.getPowerSaveRefreshRateSwitch(getActivity()));
     }
 
-    private Preference.OnPreferenceChangeListener PrefListener =
-        new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object value) {
-                final String key = preference.getKey();
+    private final Preference.OnPreferenceChangeListener PrefListener =
+            new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference, Object value) {
+                    final String key = preference.getKey();
 
                     if (KEY_MIN_REFRESH_RATE.equals(key)) {
                         RefreshRateUtils.setRefreshRate(getActivity(), Integer.parseInt((String) value));
@@ -104,12 +105,7 @@ public class DevicePreferenceFragment extends PreferenceFragment {
                         }
                         mPrefPowerSaveRefreshRate.setEnabled((boolean) value ? true : false);
                     }
-                    Toast.makeText(getContext(),
-                        R.string.msg_device_need_restart, Toast.LENGTH_SHORT).show();
+                    return true;
                 }
-
-                updateValuesAndSummaries();
-                return true;
-            }
-        };
+            };
 }
