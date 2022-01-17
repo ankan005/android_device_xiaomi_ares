@@ -335,7 +335,11 @@ PRODUCT_COPY_FILES += \
     prebuilts/vndk/v30/arm64/arch-arm-armv8-a/shared/vndk-sp/libunwindstack.so:$(TARGET_COPY_OUT_VENDOR)/lib/libunwindstack-v30.so \
     prebuilts/vndk/v30/arm64/arch-arm-armv8-a/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib/libutils-v30.so
 
-# Wi-Fi
+# XiaomiParts
+PRODUCT_PACKAGES += \
+    XiaomiParts
+
+#wifi
 PRODUCT_PACKAGES += \
     WifiOverlayAres \
     android.hardware.wifi@1.0-service-lazy \

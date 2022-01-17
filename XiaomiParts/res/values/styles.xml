@@ -72,4 +72,8 @@
         <!-- 0.8 Spacing, 0.8/11 = 0.072727273 -->
         <item name="android:letterSpacing">0.072727273</item>
     </style>
+
+    <style name="AppTheme" parent="Theme.SubSettingsBase">
+    </style>
+
 </resources>

@@ -8,4 +8,9 @@
 
 -keep class org.lineageos.settings.doze.* {
   *;
+
+-keep public class org.aospextended.device.KeyHandler
+
+-keepclassmembers public class org.aospextended.device.KeyHandler {
+    *;
 }

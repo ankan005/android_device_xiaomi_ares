@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.lineageos.settings"
-    android:versionCode="3"
-    android:versionName="3.0"
-    android:sharedUserId="android.uid.system">
+          android:sharedUserId="android.uid.system"
+          package="org.aospextended.device"
+          android:versionCode="1"
+          android:versionName="1" >
 
+    <uses-permission android:name="android.permission.INJECT_EVENTS"/>
     <uses-permission android:name="android.permission.DEVICE_POWER" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
     <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS" />
@@ -14,9 +18,9 @@
 
     <protected-broadcast android:name="com.android.systemui.doze.pulse" />
 
-    <uses-sdk
-        android:minSdkVersion="24"
-        android:targetSdkVersion="24" />
+<uses-sdk
+        android:minSdkVersion="31"
+        android:targetSdkVersion="31"/>
 
     <application
         android:allowBackup="true"
@@ -170,5 +174,58 @@
             android:permission="ThermalService">
         </service>
 
+        <!-- stub to ensure its loaded - DO NOT REMOVE -->
+        <activity android:name=".KeyHandler" />
+
+        <activity
+            android:name=".XiaomiPartsActivity"
+            android:label="@string/XiaomiParts"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+	    </activity>
+
+        <activity-alias
+            android:name=".XiaomiParts"
+            android:label="@string/XiaomiParts"
+            android:targetActivity="XiaomiPartsActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
+            </intent-filter>
+            <meta-data
+                android:name="com.android.settings.icon"
+                android:resource="@drawable/ic_settings_gestures" />
+            <meta-data
+                android:name="com.android.settings.bg.hint"
+                android:resource="@color/icon_bg_color"  />
+            <meta-data 
+                android:name="com.android.settings.bg.argb"
+                android:value="@color/icon_bg_color"/>
+            <meta-data
+                android:name="com.android.settings.category"
+                android:value="com.android.settings.category.ia.homepage" />
+            <meta-data android:name="com.android.settings.summary"
+                android:resource="@string/XiaomiParts_summary" />
+        </activity-alias>
+
+        <activity
+            android:name=".gestures.TouchGesturesActivity"
+            android:label="@string/screen_off_gestures">
+          <intent-filter>
+                <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
+          </intent-filter>
+        </activity>
+
+        <receiver android:name=".BootReceiver" >
+          <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <category android:name="android.intent.category.DEFAULT" />
+          </intent-filter>
+        </receiver>
+
     </application>
+
 </manifest>
