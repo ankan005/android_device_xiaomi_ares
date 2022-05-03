@@ -1,3 +1,4 @@
+PRODUCT_BROKEN_VERIFY_USES_LIBRARIES := true
 #
 # Copyright (C) 2020 Android Open Source Project
 #

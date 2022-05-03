@@ -24,7 +24,7 @@ TARGET_BOOT_ANIMATION_RES := 1080
 $(call inherit-product, device/xiaomi/ares/device.mk)
 
 # Inherit some source stuff
-$(call inherit-product, vendor/aosp/common.mk)
+$(call inherit-product, vendor/xtended/config/common_full_phone.mk)
 
 # Boot Animation
 TARGET_SCREEN_HEIGHT := 2340
@@ -32,10 +32,11 @@ TARGET_SCREEN_WIDTH := 1080
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := ares
-PRODUCT_NAME := aosp_ares
+PRODUCT_NAME := xtended_ares
 PRODUCT_BRAND := POCO
 PRODUCT_MODEL := POCO F3 GT
 PRODUCT_MANUFACTURER := Xiaomi
+WITH_GAPPS := true
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
