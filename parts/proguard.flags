@@ -1,5 +1,11 @@
--keep public class org.aospextended.device.KeyHandler
+-keep class org.lineageos.settings.* {
+  *;
+}
 
--keepclassmembers public class org.aospextended.device.KeyHandler {
-    *;
+-keep class org.lineageos.settings.dirac.* {
+  *;
+}
+
+-keep class org.lineageos.settings.doze.* {
+  *;
 }

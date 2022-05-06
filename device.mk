@@ -337,7 +337,8 @@ PRODUCT_COPY_FILES += \
 
 # XiaomiParts
 PRODUCT_PACKAGES += \
-    XiaomiParts
+    XiaomiParts \
+    POCOParts
 
 #wifi
 PRODUCT_PACKAGES += \
